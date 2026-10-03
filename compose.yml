@@ -1,0 +1,17 @@
+name: "event-centre-ai"
+
+services:
+  app-postgres:
+    image: postgres:16
+
+    ports:
+      - "${APP_POSTGRES_PORT:-5432}:5432"
+
+    environment:
+      - POSTGRES_PASSWORD=${APP_POSTGRES_PASSWORD}
+
+    volumes:
+      - app_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  app_postgres_data:
